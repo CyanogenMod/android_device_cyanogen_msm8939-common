@@ -66,6 +66,14 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu7/online 1
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
+    # Enable core control
+    insmod /system/lib/modules/core_ctl.ko
+    write /sys/devices/system/cpu/cpu0/core_ctl/min_cpus 2
+    write /sys/devices/system/cpu/cpu0/core_ctl/max_cpus 4
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_up_thres 68
+    write /sys/devices/system/cpu/cpu0/core_ctl/busy_down_thres 40
+    write /sys/devices/system/cpu/cpu0/core_ctl/offline_delay_ms 100
+
     # Per-process reclaim
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
     write /sys/module/process_reclaim/parameters/pressure_min 10
