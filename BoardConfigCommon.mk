@@ -128,15 +128,6 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(VENDOR_PATH)/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    bluetooth_loader.te \
-    file_contexts \
-    healthd.te \
-    property_contexts \
-    qseecomd.te \
-    surfaceflinger.te \
-    system.te
-
 # Video
 TARGET_HAVE_SIGNED_VENUS_FW := true
 
