@@ -28,9 +28,6 @@ drm.service.enabled=1
 # set max starting background services
 ro.config.max_starting_bg=8
 
-# set roaming indicator to always show
-ro.config.always_show_roaming=true
-
 # Bluetooth
 ro.qualcomm.bt.hci_transport=smd
 
@@ -42,7 +39,6 @@ persist.hwc.mdpcomp.enable=true
 persist.hwc.ptor.enable=true
 ro.opengles.version=196608
 ro.qualcomm.cabl=0
-ro.sf.lcd_density=320
 debug.enable.sglscale=1
 
 # GPS
@@ -63,14 +59,9 @@ persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
 # Radio
-persist.radio.multisim.config=dsds
 persist.radio.apm_sim_not_pwdn=1
 rild.libargs=-d /dev/smd0
-ril.ecclist=000,08,100,101,102,110,112,118,119,120,122,911,999
-persist.data.target=dpm1
 
-ro.com.android.mobiledata=false
-ro.telephony.default_network=10,1
 ro.use_data_netmgrd=true
 
 # Time
