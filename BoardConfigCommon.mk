@@ -39,6 +39,15 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno405
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user userdebug),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(VENDOR_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
@@ -149,6 +158,9 @@ BOARD_SEPOLICY_UNION += \
     surfaceflinger.te \
     system_server.te \
     system.te
+
+# Smoosh all the things
+TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
