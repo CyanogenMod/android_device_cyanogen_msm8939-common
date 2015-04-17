@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product-if-exists, vendor/yu/tomato/tomato-vendor.mk)
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
