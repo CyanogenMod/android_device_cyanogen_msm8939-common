@@ -246,12 +246,6 @@ on boot
     #For bridgemgr daemon to inform the USB driver of the correct transport
     chown radio radio /sys/class/android_usb/f_rmnet_smd_sdio/transport
 
-    # yulong add tw 20140822
-    # change file owner for factory test
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_version
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/firmware_update
-    chown system system /sys/devices/virtual/touchscreen/touchscreen_dev/calibrate
-
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
     setprop net.tcp.buffersize.default 4096,87380,110208,4096,16384,110208
@@ -307,27 +301,12 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # Torch
-    chown system camera /sys/class/leds/torch-light/brightness
-    chmod 0660 /sys/class/leds/torch-light/brightness
-
-    # Touchscreen
-    chown root system /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-    chmod 0660 /sys/devices/virtual/touchscreen/touchscreen_dev/gesture_ctrl
-
     # charger
     chown system system /sys/bus/i2c/drivers/lc709203/batt_capacity
     chmod 0660 /sys/bus/i2c/drivers/lc709203/batt_capacity
 
-    chown root system /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
-    chmod 0660 /sys/devices/soc.0/78b9000.i2c/i2c-5/5-005d/keypad_enable
-
     # camera sockets
     mkdir /data/misc/camera 0770 camera camera
-
-    # color
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-    chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
 
 on property:init.svc.bootanim=stopped
     write /sys/block/mmcblk0/queue/scheduler row
