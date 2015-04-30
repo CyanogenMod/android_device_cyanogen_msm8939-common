@@ -312,7 +312,7 @@ on boot
     chown system system /sys/devices/virtual/graphics/fb0/rgb
     chmod 0660 /sys/devices/virtual/graphics/fb0/rgb
 
-on property:init.svc.bootanim=stopped
+on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/scheduler row
 
     # bring all CPUs online
