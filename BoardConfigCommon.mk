@@ -154,9 +154,6 @@ BOARD_SEPOLICY_UNION += \
     system_server.te \
     system.te
 
-# Smoosh all the things
-TARGET_TRANSPARENT_COMPRESSION_METHOD := lz4
-
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/file
 
