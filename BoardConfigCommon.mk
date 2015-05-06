@@ -44,15 +44,6 @@ TARGET_SYSTEM_PROP += $(VENDOR_PATH)/system.prop
 TARGET_BOOTLOADER_BOARD_NAME := MSM8916
 TARGET_NO_BOOTLOADER := true
 
-# Dexpreopt
-ifeq ($(HOST_OS),linux)
-  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
-    ifeq ($(WITH_DEXPREOPT),)
-      WITH_DEXPREOPT := true
-    endif
-  endif
-endif
-
 # Kernel
 BOARD_CUSTOM_BOOTIMG_MK := $(VENDOR_PATH)/mkbootimg.mk
 BOARD_KERNEL_BASE := 0x80000000
@@ -94,6 +85,15 @@ BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
 
 # Display
 BOARD_EGL_CFG := $(VENDOR_PATH)/configs/egl.cfg
