@@ -74,7 +74,8 @@ PRODUCT_PACKAGES += \
     init.cne.rc
 
 PRODUCT_PROPERTY_OVERRIDES +=
-    persist.cne.feature=4
+    persist.cne.feature=1 \
+    persist.dpm.feature=2
 endif
 
 # CRDA
