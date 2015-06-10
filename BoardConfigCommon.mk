@@ -82,6 +82,15 @@ BOARD_HARDWARE_CLASS += $(VENDOR_PATH)/cmhw
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifeq ($(call match-word-in-list,$(TARGET_BUILD_VARIANT),user),true)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 # Display
 BOARD_EGL_CFG := $(VENDOR_PATH)/configs/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
