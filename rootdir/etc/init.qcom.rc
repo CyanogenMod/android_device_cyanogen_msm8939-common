@@ -527,6 +527,7 @@ service ril-daemon1 /system/bin/rild -c 2
     socket rild2 stream 660 root radio
     socket rild-debug2 stream 660 radio system
     user root
+    disabled
     group radio cache inet misc audio sdcard_r sdcard_rw diag qcom_diag log
 
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
