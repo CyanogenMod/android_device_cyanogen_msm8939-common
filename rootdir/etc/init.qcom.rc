@@ -34,8 +34,6 @@ on early-init
     mkdir /firmware 0771 system system
     mkdir /system 0777 root root
     symlink /data/tombstones /tombstones
-    write /sys/block/mmcblk0/queue/scheduler noop
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 512
 
 on init
     # Set permissions for persist partition
@@ -317,19 +315,6 @@ on boot
     chown system system /sys/class/leds/green/blink
     chown system system /sys/class/leds/blue/blink
 
-on property:sys.boot_completed=1
-    write /sys/block/mmcblk0/queue/scheduler row
-
-    # bring all CPUs online
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/devices/system/cpu/cpu5/online 1
-    write /sys/devices/system/cpu/cpu6/online 1
-    write /sys/devices/system/cpu/cpu7/online 1
-
-    start perfd
-
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
@@ -609,49 +594,6 @@ on charger
    chown root system /sys/class/power_supply/bms/voltage_ocv
    chmod 0664 /sys/class/power_supply/bms/current_now
    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
-   write /sys/module/lpm_levels/system/performance/cpu0/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu1/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu2/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu3/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu4/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu5/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu6/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu7/wfi/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu0/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu1/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu2/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu3/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu4/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu5/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu6/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu7/standalone_pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu0/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu1/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu2/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu3/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu4/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu5/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu6/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu7/pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu0/pc/suspend_enabled N
-   write /sys/module/lpm_levels/system/performance/cpu1/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu2/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/performance/cpu3/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu4/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu5/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu6/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/power/cpu7/pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/power/power-l2-pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/power-l2-active/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/power-l2-pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/performance-l2-active/idle_enabled Y
-   write /sys/module/lpm_levels/system/performance/performance-l2-pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/power/power-l2-pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/performance/performance-l2-pc/suspend_enabled Y
-   write /sys/module/lpm_levels/system/system-cci-active/idle_enabled Y
-   write /sys/module/lpm_levels/system/system-cci-retention/idle_enabled Y
-   write /sys/module/lpm_levels/system/system-cci-pc/idle_enabled Y
-   write /sys/module/lpm_levels/system/system-cci-pc/suspend_enabled Y
    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
    start vm_bms
 
