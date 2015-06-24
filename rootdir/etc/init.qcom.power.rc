@@ -51,10 +51,10 @@ on boot
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     write /sys/class/net/rmnet0/queues/rx-0/rps_cpus 10
 
-    write /sys/class/devfreq/qcom,cpubw.61/governor "bw_hwmon"
-    write /sys/class/devfreq/qcom,cpubw.61/bw_hwmon/io_percent 20
-    write /sys/class/devfreq/qcom,gpubw.38/governor "bw_hwmon"
-    write /sys/class/devfreq/qcom,gpubw.38/bw_hwmon/io_percent 40
+    write /sys/class/devfreq/qcom,cpubw.64/governor "bw_hwmon"
+    write /sys/class/devfreq/qcom,cpubw.64/bw_hwmon/io_percent 20
+    write /sys/class/devfreq/qcom,gpubw.40/governor "bw_hwmon"
+    write /sys/class/devfreq/qcom,gpubw.40/bw_hwmon/io_percent 40
 
     # Apply HMP task packing
     write /proc/sys/kernel/sched_small_task 20
