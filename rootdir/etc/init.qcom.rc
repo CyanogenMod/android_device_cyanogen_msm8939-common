@@ -325,6 +325,11 @@ on property:sys.boot_completed=1
 
     start perfd
 
+    # leds
+    chown system system /sys/class/leds/red/blink
+    chown system system /sys/class/leds/green/blink
+    chown system system /sys/class/leds/blue/blink
+
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
