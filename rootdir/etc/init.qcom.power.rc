@@ -92,4 +92,5 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu7/online 1
 
     start perfd
+    start migrate_tasks
 
