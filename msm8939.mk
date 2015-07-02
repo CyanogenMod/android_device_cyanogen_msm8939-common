@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# For the function to get variables from makefiles
+include vendor/cm/build/core/definitions.mk
+
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -68,7 +71,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
 
-ifeq ($(BOARD_USES_QCNE),true)
+USES_QCNE := $(call get-variable-from-boardconfig,BOARD_USES_QCNE)
+ifeq ($(USES_QCNE),true)
 PRODUCT_PACKAGES += \
     services-ext \
     init.cne.rc
