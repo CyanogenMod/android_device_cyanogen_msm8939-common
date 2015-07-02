@@ -166,6 +166,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libxml2
 
+include vendor/cm/build/core/definitions.mk
+DEVICE_ARCHITECTURE := $(call get-variable-from-makefile,$(wildcard device/*/$(CM_BUILD)/BoardConfig.mk),TARGET_ARCH)
+ifeq ($(DEVICE_ARCHITECTURE),arm64)
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+else ifeq ($(DEVICE_ARCHITECTURE),arm)
+PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so
+endif
+
 # USB
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
