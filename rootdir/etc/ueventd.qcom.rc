@@ -212,6 +212,3 @@
 
 # YL params
 /dev/yl_params1           0660   system     system
-
-# AW LEDS
-/dev/aw-leds              0660   system     system
