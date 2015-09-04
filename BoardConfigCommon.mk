@@ -127,7 +127,7 @@ TARGET_RIL_VARIANT := caf
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/cyanogen/msm8939-common/sepolicy
+    $(VENDOR_PATH)/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     bluetooth_loader.te \
