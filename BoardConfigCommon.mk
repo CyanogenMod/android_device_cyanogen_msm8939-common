@@ -130,14 +130,11 @@ BOARD_SEPOLICY_DIRS += \
 
 BOARD_SEPOLICY_UNION += \
     bluetooth_loader.te \
-    bootanim.te \
-    file.te \
     file_contexts \
     healthd.te \
     property_contexts \
     qseecomd.te \
     surfaceflinger.te \
-    system_server.te \
     system.te
 
 # Video
