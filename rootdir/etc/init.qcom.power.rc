@@ -87,6 +87,10 @@ on enable-low-power
     start perfd
 
 on charger
+    mount_all fstab.qcom
+    mkdir /persist/data 0700 system system
+    restorecon_recursive /persist
+    setprop ro.crypto.fuse_sdcard true
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
 
