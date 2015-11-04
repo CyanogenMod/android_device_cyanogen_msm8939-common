@@ -36,6 +36,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <linux/sockev.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include <arpa/inet.h>
 #include <unistd.h>
 
@@ -77,7 +78,7 @@ int main(void)
 
 	while (1) {
 		recvfrom(skfd, nlh, sizeof(struct sknlsockevmsg) + 16, 0,
-			 (const struct sockaddr *)&src_addr, &addrlen);
+			 (const struct sockaddr *)&src_addr, (socklen_t *)&addrlen);
 		msg = NLMSG_DATA(nlh);
 		printf("----------------------------\n");
 		printf("pid:\t%d\n", msg->pid);
