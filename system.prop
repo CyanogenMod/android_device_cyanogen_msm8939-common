@@ -30,7 +30,7 @@ debug.sf.gpu_comp_tiling=1
 debug.mdpcomp.idletime=600
 persist.hwc.mdpcomp.enable=true
 persist.hwc.ptor.enable=true
-ro.opengles.version=196608
+ro.opengles.version=196609
 debug.enable.sglscale=1
 
 # GPS
