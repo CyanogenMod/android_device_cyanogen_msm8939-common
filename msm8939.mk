@@ -157,6 +157,11 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     ueventd.qcom.rc
 
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    init.qcom.ssr.rc
+endif
+
 # Recovery
 PRODUCT_PACKAGES += \
     librecovery_updater_cm
