@@ -51,21 +51,6 @@ failed ()
   exit $2
 }
 
-program_bdaddr ()
-{
-  if [ -f /system/bin/yl_btmac ]; then
-    BTMAC=`/system/bin/yl_btmac`
-    if [ -n "$BTMAC" ] && [ "$BTMAC" != "00:00:00:00:00:00" ]; then
-      /system/bin/btnvtool -b $BTMAC
-    else
-      /system/bin/btnvtool -O
-    fi
-  else
-    /system/bin/btnvtool -O
-  fi
-  logi "Bluetooth Address programmed successfully"
-}
-
 #
 # enable bluetooth profiles dynamically
 #
@@ -224,7 +209,6 @@ kill_hciattach ()
 logi "init.qcom.bt.sh config = $config"
 case "$config" in
     "onboot")
-        program_bdaddr
         config_bt
         exit 0
         ;;
