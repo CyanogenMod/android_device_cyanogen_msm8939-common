@@ -58,9 +58,6 @@ persist.rild.nitz_short_ons_1=
 persist.rild.nitz_short_ons_2=
 persist.rild.nitz_short_ons_3=
 
-# OTG
-persist.sys.isUsbOtgEnabled=1
-
 # perf
 ro.min_freq_0=960000
 ro.min_freq_4=800000
