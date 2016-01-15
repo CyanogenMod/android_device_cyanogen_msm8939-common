@@ -118,8 +118,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.qcom.bt.sh \
-    init.qcom.coex.sh
+    init.qcom.bt.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
