@@ -41,6 +41,9 @@ ro.gps.agps_provider=1
 ro.qc.sdk.izat.premium.enabled=0
 ro.qc.sdk.izat.service_mask=0x0
 
+# IO Scheduler
+sys.io.scheduler=bfq
+
 # Media
 mm.enable.smoothstreaming=true
 mm.disable.sec_smoothstreaming=true
