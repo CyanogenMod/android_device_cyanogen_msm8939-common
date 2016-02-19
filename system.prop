@@ -1,8 +1,5 @@
 # ActivityManager optimizations
 ro.config.max_starting_bg=8
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
 
 # Audio
 ro.qc.sdk.audio.fluencetype=fluence
