@@ -66,6 +66,7 @@ ro.vendor.extension_library=libqti-perfd-client.so
 persist.radio.apm_sim_not_pwdn=1
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+ro.telephony.call_ring.multiple=false
 ro.use_data_netmgrd=true
 
 # Scheduler
@@ -76,3 +77,4 @@ persist.timed.enable=true
 
 # WiFi
 ro.disableWifiApFirmwareReload=true
+wifi.interface=wlan0
