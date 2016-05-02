@@ -64,7 +64,14 @@ on enable-low-power
     write /sys/devices/system/cpu/cpu5/online 1
     write /sys/devices/system/cpu/cpu6/online 1
     write /sys/devices/system/cpu/cpu7/online 1
+
     write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Update foreground and background cpusets
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 4-7
+    write /dev/cpuset/background/cpus 0
+    write /dev/cpuset/system-background/cpus 0-3
 
     # Per-process reclaim
     write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
