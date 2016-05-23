@@ -30,6 +30,8 @@
 #ifndef __INIT_MSM8916__H__
 #define __INIT_MSM8916__H__
 
+#define PROP_LCDDENSITY  "ro.sf.lcd_density"
+
 void init_target_properties();
 
 #endif /* __INIT_MSM8916__H__ */
